@@ -1,24 +1,24 @@
 class Coche:
     def __init__(self, marca, modelo):
-        self.__marca = marca  # Propiedad privada
-        self.__modelo = modelo  # Propiedad privada
-        self.__combustible = 100  # Propiedad privada
+        self.__marca = marca  
+        self.__modelo = modelo  
+        self.__combustible = 100  
 
     def conducir(self, km):
-        # Calcula el combustible consumido (1 litro cada 10 km)
+        
         combustible_consumido = km / 10
         
-        # Verifica si hay suficiente combustible
+        
         if combustible_consumido > self.__combustible:
             print(f"\n{self.__marca} {self.__modelo}: No hay suficiente combustible para recorrer {km} km.")
             print(f"Solo puedes recorrer {self.__combustible * 10} km con el combustible actual.")
-            self.__combustible = 0  # El combustible se agota
+            self.__combustible = 0  
         else:
             self.__combustible -= combustible_consumido
             print(f"\n{self.__marca} {self.__modelo}: Has recorrido {km} km. Combustible restante: {self.__combustible:.2f} litros.")
 
     def repostar(self, litros):
-        # Aumenta el combustible, pero no puede superar 100 litros
+        
         if self.__combustible + litros > 100:
             self.__combustible = 100
             print(f"\n{self.__marca} {self.__modelo}: El depósito está lleno (100 litros).")
@@ -27,10 +27,10 @@ class Coche:
             print(f"\n{self.__marca} {self.__modelo}: Has repostado {litros} litros. Combustible actual: {self.__combustible:.2f} litros.")
 
     def estado(self):
-        # Muestra el estado actual del combustible
+        
         print(f"\n{self.__marca} {self.__modelo}: Combustible restante: {self.__combustible:.2f} litros.")
 
-    # Métodos getters para acceder a las propiedades privadas
+    
     def get_marca(self):
         return self.__marca
 
@@ -40,7 +40,7 @@ class Coche:
     def get_combustible(self):
         return self.__combustible
 
-    # Métodos setters para modificar las propiedades privadas
+    
     def set_marca(self, marca):
         self.__marca = marca
 
@@ -54,7 +54,7 @@ class Coche:
             print("Error: El combustible debe estar entre 0 y 100 litros.")
 
 
-# Función para mostrar el menú
+
 def mostrar_menu():
     print("\n--- Menú del Coche ---")
     print("1. Conducir")
@@ -63,9 +63,9 @@ def mostrar_menu():
     print("4. Salir")
 
 
-# Programa principal
+
 def main():
-    # Crear un coche
+    
     marca = input("Ingresa la marca del coche: ")
     modelo = input("Ingresa el modelo del coche: ")
     mi_coche = Coche(marca, modelo)
@@ -89,6 +89,6 @@ def main():
             print("\nOpción no válida. Por favor, selecciona una opción del 1 al 4.")
 
 
-# Iniciar el programa
+
 if __name__ == "__main__":
     main()
